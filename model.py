@@ -33,5 +33,11 @@ class CardiacDetectionModel(torch.nn.Module):
     def forward(self, x):
         return self.model(x)
     
-    
+    def load_model(self, model_path):
+        self.load_state_dict(torch.load(model_path))
+
+    def save_model(self, model_path):
+        torch.save(self.state_dict(), model_path)
+
+
     
