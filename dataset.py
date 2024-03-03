@@ -27,4 +27,4 @@ class CardiacDataset(torch.utils.data.Dataset):
         image = (image - self.mean) / (self.std)
         image = torch.tensor(image).unsqueeze(0)
 
-        return image, torch.tensor((x_min, y_min, x_max, y_max))
+        return image.double(), torch.tensor((x_min, y_min, x_max, y_max)).double()
